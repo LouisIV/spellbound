@@ -1,0 +1,15 @@
+schema: spec-driven
+context: |
+  Spellbound is a new macOS-first spelling practice app in a SwiftUI monorepo.
+  The repository currently contains planning documents only; implementation is deferred.
+  Use Tuist Swift manifests to generate/build Xcode projects; pin Tuist and ignore generated projects.
+  Use native Swift and local Swift packages with platform-independent learning logic.
+  macOS observation uses an isolated Accessibility adapter; prove app compatibility first.
+  Future iOS support shares practice and learning features, not macOS monitoring APIs.
+  Default to local processing, explicit per-app opt-in, and no raw text persistence.
+  Proposed baseline: macOS 14+, eventual iOS 17+, Swift 6 language mode.
+rules:
+  specs:
+    - Include testable failure and permission scenarios for cross-app behavior.
+  tasks:
+    - Put the macOS Accessibility feasibility gate before production monitoring work.
