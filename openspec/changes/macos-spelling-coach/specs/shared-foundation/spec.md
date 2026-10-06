@@ -23,7 +23,7 @@ The repository SHALL use committed Tuist Swift manifests as the source of truth 
 
 #### Scenario: Clean generation and build
 - **WHEN** a developer installs the documented toolchain and pinned Tuist version in a clean checkout
-- **THEN** tuist generate and tuist build SpellboundMac produce a buildable macOS app without manually editing project files or requiring a Tuist cloud account
+- **THEN** tuist generate and tuist xcodebuild build with the SpellboundMac scheme produce a buildable macOS app without manually editing project files or requiring a Tuist cloud account
 
 #### Scenario: Project configuration changes
 - **WHEN** an app target or scheme needs to change

@@ -1,16 +1,18 @@
-<img src="assets/icon.svg" width="64" height="64" alt="">
+<img src="assets/icons/spellbound-key.png" width="64" height="64" alt="">
 
 # Spellbound
 
-A planned macOS spelling coach that turns everyday typos into short typing exercises. Built around native SwiftUI app shells and shared Swift packages, with a future iOS practice app in mind.
+A macOS spelling coach in early development that turns everyday typos into short typing exercises. Built around native SwiftUI app shells and shared Swift packages, with a future iOS practice app in mind.
 
-## Project status
+## Try the prototype
 
-Planning only; no application code has been implemented.
+Open **Spellbound** from Applications (installed at `/Applications/Spellbound.app`). A matching build is also available at **[dist/Spellbound.app](dist/Spellbound.app)** and choose **Open typing playground**. Type `This is neccessary ` (with a final space), then complete the word-anchored exercise.
 
-The proposed MVP observes supported, explicitly enabled text inputs, checks completed words locally, opens a three-round spelling exercise, and schedules later reviews. Cross-app support and safe correction must pass an Accessibility feasibility gate first. Interruption is best-effort; preventing every submission and detecting missing words are outside this first version.
+For other apps, grant Accessibility once and enable monitoring in Spellbound. Cross-app support is experimental and depends on each control exposing text ranges and word coordinates. No per-app onboarding is required.
 
-The planned build workflow uses **Tuist** with committed Swift manifests and a pinned version. Generated Xcode projects and workspaces will stay out of version control; reusable modules remain local Swift packages.
+See [prototype usage and limitations](docs/prototype.md), [development setup](docs/development.md), and [compatibility evidence](docs/compatibility.md).
+
+The native strip, guided/recall loop, playground, focused-input adapter, and guarded replacement are implemented. Per-word history and spaced review are still planned. Tuist owns project generation; shared Swift packages keep the core and views reusable on iOS.
 
 ## OpenSpec plan
 
@@ -25,5 +27,3 @@ Validate the proposal with the installed OpenSpec CLI:
 openspec validate macos-spelling-coach --strict --no-interactive
 openspec status --change macos-spelling-coach
 ```
-
-Next phase: prove text observation in the intended coding-assistant prompt, then implement the native app and shared learning loop.

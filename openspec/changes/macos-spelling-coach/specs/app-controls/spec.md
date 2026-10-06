@@ -1,10 +1,10 @@
 ## ADDED Requirements
 
 ### Requirement: Onboarding and monitoring control
-The app SHALL explain cross-app text access, start monitoring disabled, allow explicit per-app opt-in, and expose pause/resume and permission status from the menu bar.
+The app SHALL explain cross-app text access, start monitoring disabled, offer one global enable switch and optional per-app exclusions, and expose pause/resume and permission status from the menu bar.
 
 #### Scenario: First launch
-- **WHEN** the app has no configured permissions or enabled apps
+- **WHEN** the app has not completed Accessibility onboarding and global enablement
 - **THEN** onboarding explains access and observes no text
 
 #### Scenario: Pause

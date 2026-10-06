@@ -1,10 +1,10 @@
 ## ADDED Requirements
 
 ### Requirement: Explicit observation eligibility
-The app SHALL observe only user-enabled applications while Accessibility permission is granted, monitoring is active, and the focused input is positively classified as supported and non-secure.
+The app SHALL observe the focused input across applications without per-app onboarding while Accessibility permission is granted, monitoring is active, and the focused input is positively classified as supported and non-secure, and the app is not excluded.
 
 #### Scenario: Eligible field
-- **WHEN** an enabled app exposes a supported editable text input
+- **WHEN** a non-excluded app exposes a supported editable text input
 - **THEN** the observer processes bounded changes in that field
 
 #### Scenario: Permission unavailable
@@ -12,7 +12,7 @@ The app SHALL observe only user-enabled applications while Accessibility permiss
 - **THEN** observation stops, transient text is cleared, and permission-required status is shown
 
 #### Scenario: Excluded field
-- **WHEN** focus enters a secure, unknown, disabled, or unsupported input
+- **WHEN** focus enters a secure, unknown, excluded, or unsupported input
 - **THEN** no input text is read and unsupported status is shown where applicable
 
 ### Requirement: Bounded transient observation
@@ -32,3 +32,14 @@ The MVP SHALL document tested app/control versions and distinguish observation, 
 #### Scenario: Primary workflow gate
 - **WHEN** the intended coding-assistant prompt cannot be observed reliably
 - **THEN** the compatibility report marks it unsupported and the target workflow is not declared complete
+
+### Requirement: Automatic focus following
+The app SHALL follow focus between eligible inputs in different applications after one global enablement, without asking the user to onboard each application. Optional exclusions SHALL stop observation in excluded applications.
+
+#### Scenario: Newly focused application
+- **WHEN** monitoring is active and focus moves to a supported input in an application never seen before
+- **THEN** observation begins without an app-specific setup step unless that app is excluded
+
+#### Scenario: Excluded application
+- **WHEN** the user excludes an application
+- **THEN** any observation of that application stops and its transient input state is cleared
