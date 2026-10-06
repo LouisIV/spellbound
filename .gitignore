@@ -1,0 +1,11 @@
+.DS_Store
+.build/
+DerivedData/
+*.xcodeproj/
+*.xcworkspace/
+Tuist/.build/
+.impeccable/
+
+Derived/
+
+dist/
